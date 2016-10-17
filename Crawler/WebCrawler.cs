@@ -24,7 +24,7 @@ namespace MPP_WebCrawler
             return result;
         }
 
-        public async Task<CrawlResult> StartCrawlingAsync(string parentUrl, List<string> urls, int currentDepth)
+        public async Task<CrawlResult> StartCrawlingAsync(List<string> urls, int currentDepth)
         {
             Dictionary<string, CrawlResult> crawlResultList = new Dictionary<string, CrawlResult>();
             foreach (string url in urls)
@@ -35,7 +35,7 @@ namespace MPP_WebCrawler
                 {
                     List<string> parsedUrls = HTMLParser.GetHref(url);
                     if (parsedUrls != null)
-                        currentUrlCrawlResult = await StartCrawlingAsync(url, parsedUrls, currentDepth + 1);
+                        currentUrlCrawlResult = await StartCrawlingAsync(parsedUrls, currentDepth + 1);
                     if ((currentUrlCrawlResult != null) && (!crawlResultList.ContainsKey(url)))
                         crawlResultList.Add(url, currentUrlCrawlResult); ;
                 }

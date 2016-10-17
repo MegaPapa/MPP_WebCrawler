@@ -27,7 +27,7 @@ namespace MPP_WebCrawler
                 Console.WriteLine(listhref.Count);
                 WebCrawler wc = new WebCrawler(2);
                 CrawlResult cr = new CrawlResult();
-                cr = await wc.StartCrawlingAsync(string.Empty, listhref, 1);
+                cr = await wc.StartCrawlingAsync(listhref, 1);
             }
             catch (Exception e)
             {

@@ -8,6 +8,6 @@ namespace MPP_WebCrawler
 {
     interface IWebCrawler
     {
-        Task<CrawlResult> StartCrawlingAsync(string parentUrl, List<string> rootUrls, int currentDepth);
+        Task<CrawlResult> StartCrawlingAsync(List<string> rootUrls, int currentDepth);
     }
 }
